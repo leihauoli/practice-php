@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-family: 'Meiryo', 'メイリオ';
+}
+body {
+	padding: 20px;
+}
+table tr > * {
+	padding: 10px;
+	border: 1px solid #DDD;
+}

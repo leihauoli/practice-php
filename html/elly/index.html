@@ -1,0 +1,113 @@
+﻿<?php
+
+$id = "000001";
+$name = "竹内 真";
+$kana = "Takeuchi Shin";
+$post = "代表取締役";
+$birthday = "1978/07/05";
+$blood_type = "A（AA）";
+
+
+$member_array = array();
+
+$member_array[] = array(
+	'number' => '00001',
+	'name' => '竹内 真',
+	'kana' => 'Takeuchi Shin',
+	'post' => 'CEO（代表取締役）',
+	'birthday' => '1978/07/05',
+	'blood_type' => 'A（AA）',
+);
+
+$member_array[] = array(
+	'number' => '00002',
+	'name' => '山口 彰',
+	'kana' => 'Yamaguchi Akira',
+	'post' => 'COO（取締役）',
+	'birthday' => '1977/10/02',
+	'blood_type' => 'A',
+);
+$member_array[] = array(
+	'number' => '00005',
+	'name' => '猪狩 丈治',
+	'kana' => 'Igari Takeharu',
+	'post' => 'エバンジェリスト、チーフフロントエンドエンジニア',
+	'birthday' => '1982/08/17',
+	'blood_type' => 'B（BO）',
+);
+$member_array[] = array(
+	'number' => '00009',
+	'name' => '諸星 一行',
+	'kana' => 'Morohoshi Kazuyuki',
+	'post' => 'フロントエンドエンジニア',
+	'birthday' => '1983/04/25',
+	'blood_type' => 'O',
+);
+$member_array[] = array(
+	'number' => '000010',
+	'name' => '水柿 優子',
+	'kana' => 'Mizugaki Yuko',
+	'post' => 'フロントエンドエンジニア',
+	'birthday' => '1980/07/31',
+	'blood_type' => 'O(純正）',
+);
+
+
+//定数
+define("C_DIR_IDENTIFIER", "elly");
+
+//インクルード
+//require_once "func_set_include_path.php";
+
+//TODO:？:ディレクトリを定義
+//setIncludePath (C_DIR_IDENTIFIER);
+
+//require_once "functions/init.class.php";
+
+//変数
+//$init = new initClass;
+
+
+echo $_POST["mode"];
+
+
+?>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel=stylesheet type="text/css" href="/<?php echo C_DIR_IDENTIFIER; ?>/css/base.css">
+</head>
+<body>
+<form action="index.html" method="post">
+	<input type="text" name="mode">
+	<input type="submit">
+</form>
+
+<?php if($_POST["mode"] == "view"){ ?>	
+<table>
+	<thead>
+		<tr>
+			<th>社員番号</th>
+			<th>氏名</th>
+			<th>かな</th>
+			<th>役職</th>
+			<th>生年月日</th>
+			<th>血液型</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($member_array as $value) { ?>
+		<tr>
+			<td><?php echo $value["number"]; ?></td>
+			<td><?php echo $value["name"]; ?></td>
+			<td><?php echo $value["kana"]; ?></td>
+			<td><?php echo $value["post"]; ?></td>
+			<td><?php echo $value["birthday"]; ?></td>
+			<td><?php echo $value["blood_type"]; ?></td>
+		</tr>
+	<?php } ?>
+	</tbody>
+</table>
+<?php } ?>
+</body>
+</html>
